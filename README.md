@@ -1,3 +1,4 @@
+
 # wildfly-decks
 WildFly presentation materials.
 
@@ -13,3 +14,5 @@ WildFly presentation materials.
 * Open onstage.html and introduce the deck to present's filename (e.g. wildfly-deck-full.html).
 * Click on "Pop-up" to create the presentation window to share.
 * Use the onstage window to control the presentation.
+
+Note that this work is derived from the <https://github.com/paulrouget/dzslides> project which states that any change is allowed as long as the original (dzslides or license) name is not used.
