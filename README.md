@@ -4,6 +4,7 @@ WildFly presentation materials.
 ## Available decks:
 * wildfly-deck-full.html    - The deck for the full WildFly presentation
 * wildfly-deck-short.html   - The deck for the short WildFly presentation, to be used as intro for specific component/topic oriented presentations
+* wildfly-deck-project.html - The deck about this project
 
 ## How to present:
 * Fork this repo.
