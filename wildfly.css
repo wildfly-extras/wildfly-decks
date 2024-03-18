@@ -1,0 +1,157 @@
+html, .view body { background-color: black; counter-reset: slideidx; }
+body, .view section {
+    /* FYI wildfly.org's dark green is #1e2e37 */
+    background-color: white; border-radius: 12px;
+    font-family: 'Red Hat Text', arial, serif;
+    font-style: normal;
+    color: black;
+}
+
+section, .view head > title {
+    font-size: 2rem;
+}
+
+.view section:after {
+    counter-increment: slideidx;
+    content: counter(slideidx, decimal-leading-zero);
+    position: absolute; bottom: -80px; right: 100px;
+    color: white;
+}
+
+.view head > title {
+    color: white;
+    text-align: center;
+    margin: 1em 0 1em 0;
+}
+
+h1 {
+    margin: 120px 0 30px 0;
+    text-align: center;
+    font-size: 5rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+section > h3 {
+    margin: 50px 50px 40px 50px;
+    border-bottom: 0.1px solid;
+}
+
+pre {
+    overflow: hidden;
+    font-size: 1.25rem;
+    margin: 0 75px 0 75px;
+    padding: 10px;
+    border: 1px solid;
+    font-weight: bold;
+    background-color: #F7F7F7;
+    width:80%
+}
+
+ul, ol {
+    margin: 40px 100px 0 100px;
+}
+
+li > ul, ol {
+    margin: 0 0 15px 50px;
+    list-style-image: none; /* in case parent list has some */
+}
+
+mark.next:not([active]) {
+    visibility: visible; /* override the default behavior where next is hidden */
+    background-color: inherit; /* and disable highlighting instead */
+}
+
+p {
+    margin: 75px 75px 0 75px;
+    font-size: 3rem;
+}
+
+table {
+    margin: auto;
+    font-size:2.5rem;
+    text-align: center;
+}
+
+blockquote {
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 3.75rem;
+    padding: 50px;
+}
+blockquote:before {
+    content: open-quote;
+}
+blockquote:after {
+    content: close-quote;
+}
+
+/* Figures are displayed full-page, with the caption
+   on top of the image/video */
+figure {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+figure > * {
+    position: absolute;
+}
+figure > img, figure > video {
+    width: 100%; height: 100%;
+}
+figcaption {
+    margin: 70px;
+    font-size: 3rem;
+}
+
+header {
+    background-color: #F3F4F8;
+    border-bottom: 1px solid #CCC;
+}
+
+footer {
+    background-color: white;
+    border-top: 1px solid #CCC;
+    padding-bottom: 4px; /* remember progress bar */
+    padding-right: 5px;
+    padding-top: 6px;
+}
+
+section footer {
+    padding: 10px;
+}
+
+/* Transition effect */
+/* Feel free to change the transition effect for original
+   animations. See here:
+   https://developer.mozilla.org/en/CSS/CSS_transitions
+   How to use CSS3 Transitions: */
+section {
+    transition: left 400ms linear 0s;
+}
+.view section {
+    transition: none;
+}
+
+.view section[aria-selected] {
+    border: 5px red solid;
+}
+
+@media screen {
+    /* Before */
+    section { left: -150%; }
+    /* Now */
+    section[aria-selected] { left: 0; }
+    /* After */
+    section[aria-selected] ~ section { left: +150%; }
+}
+
+/* The progressbar, at the bottom of the slides, show the global
+   progress of the presentation. */
+#progress-bar {
+    height: 4px;
+    background: #AAA;
+}
