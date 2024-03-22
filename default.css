@@ -75,9 +75,9 @@ footer {
 
 /*
    **************************************
-   Uncomment the following for 16:9 slides
+   Comment the following for 4:3 slides
    **************************************
-
+*/
   html { font-size: 12px; }
   body { height: 450px; }
   .view section {
@@ -85,4 +85,4 @@ footer {
     margin: -140px -200px;
     transform: scale(.3);
   }
-*/
+
