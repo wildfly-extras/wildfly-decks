@@ -1,10 +1,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 [role="note"] { display: none; }
 html {
-    font-size: 16px;
+    font-size: 12px;
 }
 body {
-    width: 800px; height: 600px;
+    width: 800px; height: 450px;
     position: absolute; top: 50%; left: 50%;
     overflow: hidden;
     display: none;
@@ -27,11 +27,11 @@ section {
 .view section {
     pointer-events: auto;
     position: static;
-    width: 800px; height: 600px;
-    margin: -150px -200px;
+    width: 800px; height: 450px;
+    margin: -140px -200px;
     float: left;
 
-    transform: scale(.4);
+    transform: scale(.3);
 }
 .view section > * { pointer-events: none; }
 section[aria-selected] { pointer-events: auto; }
@@ -72,17 +72,3 @@ footer {
     body { overflow: visible; }
     #progress-bar{ display:none; }
 }
-
-/*
-   **************************************
-   Uncomment the following for 16:9 slides
-   **************************************
-
-  html { font-size: 12px; }
-  body { height: 450px; }
-  .view section {
-    height: 450px;
-    margin: -140px -200px;
-    transform: scale(.3);
-  }
-*/
