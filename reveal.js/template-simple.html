@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Presentation Title</title>
+    <meta name="description" content="Your presentation description">
+    <meta name="author" content="Your Name">
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="wildfly-theme.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section>
+                <h1>Your Presentation Title</h1>
+                <h3>Subtitle or tagline</h3>
+                <p>
+                    <small>by <strong>Your Name</strong></small>
+                </p>
+                <aside class="notes">
+                    Speaker notes go here. Press 's' to view them during presentation.
+                </aside>
+            </section>
+
+            <!-- About Me -->
+            <section>
+                <h3>About Me</h3>
+                <ul>
+                    <li>Your role and company</li>
+                    <li>Your background and experience</li>
+                    <li>Your relevant contributions or expertise</li>
+                    <li>Other credentials or achievements</li>
+                </ul>
+            </section>
+
+            <!-- Example: Simple Slide with Incremental Bullets -->
+            <section>
+                <h3>Slide Title</h3>
+                <ul>
+                    <li class="fragment">First point (appears on click)</li>
+                    <li class="fragment">Second point</li>
+                    <li class="fragment">Third point</li>
+                </ul>
+                <aside class="notes">
+                    Use class="fragment" for incremental reveals.
+                </aside>
+            </section>
+
+            <!-- Example: Vertical Slides (navigate with up/down arrows) -->
+            <section>
+                <section>
+                    <h2>Main Topic</h2>
+                    <p>This is the main slide. Press down arrow for details.</p>
+                </section>
+
+                <section>
+                    <h3>Subtopic 1</h3>
+                    <ul>
+                        <li>Detail 1</li>
+                        <li>Detail 2</li>
+                        <li>Detail 3</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Subtopic 2</h3>
+                    <ul>
+                        <li>More details</li>
+                        <li>Even more details</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Example: Code Slide -->
+            <section>
+                <h3>Code Example</h3>
+                <pre><code class="java" data-trim data-line-numbers>
+@Path("/api/resource")
+public class ExampleResource {
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getData() {
+        return Response.ok(data).build();
+    }
+}
+                </code></pre>
+                <aside class="notes">
+                    Use data-line-numbers for line number highlighting.
+                    Supported languages: java, xml, javascript, bash, etc.
+                </aside>
+            </section>
+
+            <!-- Example: Two Column Layout -->
+            <section>
+                <h3>Two Column Layout</h3>
+                <div style="display: flex; gap: 2rem;">
+                    <div style="flex: 1;">
+                        <h4>Column 1</h4>
+                        <ul>
+                            <li>Point 1</li>
+                            <li>Point 2</li>
+                            <li>Point 3</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4>Column 2</h4>
+                        <ul>
+                            <li>Point A</li>
+                            <li>Point B</li>
+                            <li>Point C</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Example: Image Slide -->
+            <section>
+                <h3>Image Example</h3>
+                <!-- Replace with your own image -->
+                <img src="assets/img/logo.png" alt="Your Image"
+                     style="height: 300px;" class="plain">
+                <p>Use class="plain" to remove border/shadow</p>
+                <aside class="notes">
+                    Replace the src with your own image path.
+                </aside>
+            </section>
+
+            <!-- Example: Emphasis -->
+            <section>
+                <h3>Text Highlighting</h3>
+                <p>Use <strong>strong tags</strong> for accent color highlighting.</p>
+                <p>Regular text appears in the theme's default color.</p>
+            </section>
+
+            <!-- Thank You -->
+            <section>
+                <h2>Thank You!</h2>
+                <p>Questions?</p>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- WildFly Logo Footer -->
+    <div class="wildfly-footer">
+        <img src="assets/img/logo.png" alt="WildFly" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            showSlideNumber: 'speaker',
+            transition: 'slide',
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>
