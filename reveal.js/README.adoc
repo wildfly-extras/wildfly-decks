@@ -1,0 +1,371 @@
+= WildFly Reveal.js Theme
+
+A modern https://revealjs.com/[reveal.js] presentation theme for WildFly presentations, using WildFly branding colors and the Red Hat Text font family.
+
+== Features
+
+* *WildFly Branding*: Dark green background (#1e2e37) with orange accents (#ff6d1f)
+* *Red Hat Text Font*: Matches wildfly.org typography
+* *WildFly Logo*: Persistent footer logo on all slides
+* *Modern reveal.js*: Uses reveal.js 5.1.0 with latest features
+* *Code Highlighting*: Monokai theme for syntax highlighting
+* *Speaker Notes*: Built-in presenter mode (press 's')
+* *No Build Required*: CDN-based, just open and present
+
+== Quick Start
+
+. *Choose and copy a template:*
++
+Two templates are available:
++
+* `template-simple.html` - Clean text-based title slide (modern, minimal)
++
+[source,bash]
+----
+# For simple/minimal style
+cp template-simple.html my-presentation.html
+----
+* `template-hero.html` - Title slide with WildFly hero image background (bold, visual)
++
+[source,bash]
+----
+# For hero image style
+cp template-hero.html my-presentation.html
+----
+
+. *Edit the content:*
++
+** Update title, author, and description in the `<head>`
+** Replace placeholder content with your slides
+** Add speaker notes in `<aside class="notes">` tags
+
+. *Run a local server:*
++
+* Using Node.js `http-server`
++
+[source,bash]
+----
+# Using Node.js http-server
+npm install -g http-server
+http-server .
+----
+* Using Python `http.server`
++
+[source,bash]
+----
+# Using Python
+python3 -m http.server 8000
+----
+
+. *Open in browser:*
++
+** Navigate to http://localhost:8000/my-presentation.html
+** Press `s` for speaker notes view
+** Press `?` for keyboard shortcuts help
+
+== Slide Examples
+
+=== Basic Slide with Incremental Bullets
+
+[source,html]
+----
+<section>
+    <h3>My Topic</h3>
+    <ul>
+        <li class="fragment">First point</li>
+        <li class="fragment">Second point</li>
+        <li class="fragment">Third point</li>
+    </ul>
+</section>
+----
+
+=== Vertical Slides (Group Related Topics)
+
+[source,html]
+----
+<section>
+    <section>
+        <h2>Main Topic</h2>
+        <p>Overview slide</p>
+    </section>
+
+    <section>
+        <h3>Subtopic 1</h3>
+        <p>Details...</p>
+    </section>
+
+    <section>
+        <h3>Subtopic 2</h3>
+        <p>More details...</p>
+    </section>
+</section>
+----
+
+=== Code Highlighting
+
+[source,html]
+----
+<section>
+    <h3>Code Example</h3>
+    <pre><code class="java" data-trim data-line-numbers="1,3-5">
+@Path("/api")
+public class MyResource {
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getData() {
+        return Response.ok(data).build();
+    }
+}
+    </code></pre>
+</section>
+----
+
+Supported languages: java, xml, javascript, bash, sql, yaml, json, and many more.
+
+=== Two-Column Layout
+
+[source,html]
+----
+<section>
+    <h3>Comparison</h3>
+    <div style="display: flex; gap: 2rem;">
+        <div style="flex: 1;">
+            <h4>Column 1</h4>
+            <ul>
+                <li>Point 1</li>
+                <li>Point 2</li>
+            </ul>
+        </div>
+        <div style="flex: 1;">
+            <h4>Column 2</h4>
+            <ul>
+                <li>Point A</li>
+                <li>Point B</li>
+            </ul>
+        </div>
+    </div>
+</section>
+----
+
+=== Images
+
+[source,html]
+----
+<section>
+    <h3>Architecture Diagram</h3>
+    <img src="path/to/image.png" alt="Description"
+         style="height: 400px;" class="plain">
+    <p>Image caption</p>
+</section>
+----
+
+Use `class="plain"` to remove the default border and shadow.
+
+== Keyboard Shortcuts
+
+* *Arrow keys*: Navigate slides (up/down for vertical slides)
+* *s*: Open speaker notes view
+* *f*: Fullscreen mode
+* *Esc*: Slide overview (grid view)
+* *b* or *.*: Pause/blackout
+* *?*: Show help overlay
+
+== Customization
+
+=== Change Theme Colors
+
+Edit `wildfly-theme.css` and modify the CSS variables:
+
+[source,css]
+----
+:root {
+    --r-background-color: #1e2e37;  /* WildFly dark green */
+    --r-link-color: #ff6d1f;        /* WildFly orange */
+    --r-heading-color: #ffffff;     /* Heading color */
+}
+----
+
+=== Change Code Highlighting Theme
+
+Replace the highlight plugin link in your HTML:
+
+[source,html]
+----
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/THEME.css">
+----
+
+Available themes: monokai, zenburn, github, vs, dracula, atom-one-dark
+
+=== Adjust Logo Position
+
+Edit the `.wildfly-footer` styles in `wildfly-theme.css`:
+
+[source,css]
+----
+.wildfly-footer {
+    position: fixed;
+    bottom: 10px;   /* Adjust vertical position */
+    right: 10px;    /* Adjust horizontal position */
+    height: 40px;   /* Adjust logo size */
+}
+----
+
+=== Remove Logo
+
+Delete the footer div before the closing `</body>` tag:
+
+[source,html]
+----
+<!-- Delete this -->
+<div class="wildfly-footer">
+    <img src="assets/img/logo.png" alt="WildFly" />
+</div>
+----
+
+== Reveal.js Configuration
+
+Common configuration options (in the `Reveal.initialize()` block):
+
+[source,javascript]
+----
+Reveal.initialize({
+    hash: true,                    // URL hash for slide navigation
+    slideNumber: true,             // Show slide numbers
+    showSlideNumber: 'speaker',    // Only in speaker view
+    transition: 'slide',           // none/fade/slide/convex/concave/zoom
+    controls: true,                // Show navigation arrows
+    progress: true,                // Show progress bar
+    center: true,                  // Vertical centering of slides
+
+    // More options at: https://revealjs.com/config/
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+});
+----
+
+== PDF Export
+
+To export your presentation as PDF:
+
+. Add `?print-pdf` to the URL: `http://localhost:8000/my-presentation.html?print-pdf`
+. Open print dialog (Ctrl/Cmd + P)
+. Set destination to "Save as PDF"
+. Choose "Save"
+
+For best results, use Chrome or Chromium-based browsers.
+
+== Using reveal.js Offline
+
+By default, the templates use the reveal.js CDN for easy setup and version upgrades. However, you may want to use a local copy for:
+
+* *Offline presentations* (no internet connection available)
+* *High-security environments* (no external dependencies)
+* *Version locking* (prevent unexpected changes)
+
+=== Download reveal.js Locally
+
+. *Download the reveal.js distribution:*
++
+[source,bash]
+----
+# Download and extract reveal.js 5.1.0
+curl -L https://github.com/hakimel/reveal.js/archive/5.1.0.tar.gz -o reveal.js-5.1.0.tar.gz
+tar -xzf reveal.js-5.1.0.tar.gz
+
+# Copy needed files to your presentation directory
+mkdir -p reveal.js-dist
+cp -r reveal.js-5.1.0/dist reveal.js-dist/
+cp -r reveal.js-5.1.0/plugin reveal.js-dist/
+----
+
+. *Update your HTML file:*
++
+Replace the CDN links with local paths:
++
+[source,html]
+----
+<!-- Change FROM (CDN): -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+
+<!-- TO (Local): -->
+<link rel="stylesheet" href="reveal.js-dist/dist/reset.css">
+<link rel="stylesheet" href="reveal.js-dist/dist/reveal.css">
+<link rel="stylesheet" href="reveal.js-dist/plugin/highlight/monokai.css">
+
+<script src="reveal.js-dist/dist/reveal.js"></script>
+<script src="reveal.js-dist/plugin/notes/notes.js"></script>
+<script src="reveal.js-dist/plugin/markdown/markdown.js"></script>
+<script src="reveal.js-dist/plugin/highlight/highlight.js"></script>
+----
+
+. *Your directory structure will look like:*
++
+----
+my-presentation/
+  my-presentation.html
+  wildfly-theme.css
+  assets/
+    img/
+  reveal.js-dist/
+    dist/
+      reset.css
+      reveal.css
+      reveal.js
+    plugin/
+      highlight/
+      notes/
+      markdown/
+----
+
+. *Test offline:*
++
+Open `my-presentation.html` directly in your browser (no server required for offline use), or use a local server as usual.
+
+=== CDN vs Local: Which to Use?
+
+|===
+|Scenario |Recommendation 
+
+|*Normal presentation* (internet available) |Use CDN (default) 
+|*Conference with unreliable WiFi* |Use local copy 
+|*Air-gapped/secure environment* |Use local copy 
+|*Long-term archival* |Use local copy (version locked) 
+|*Frequent version updates* |Use CDN (easy to upgrade) 
+|===
+
+== Structure
+
+----
+reveal.js/
+  template-simple.html   # Simple template (text-only title slide)
+  template-hero.html     # Hero template (image background title slide)
+  wildfly-theme.css      # WildFly custom theme
+  README.adoc            # This file
+  assets/
+    img/
+      favicon.ico        # WildFly favicon
+      logo.png           # WildFly logo (footer)
+      wildfly_hero.jpg   # Hero image for title slides
+----
+
+== Resources
+
+* https://revealjs.com/[reveal.js Documentation]
+* https://github.com/hakimel/reveal.js[reveal.js GitHub]
+* https://wildfly.org[WildFly Website]
+
+== License
+
+* reveal.js: MIT License
+* WildFly logos and branding: Property of the https://commonhaus.org[Commonhaus Foundation].
+* This theme: Apache License 2.0
+
+== Contributing
+
+To contribute improvements to this theme, please submit a pull request to the https://github.com/wildfly-extras/wildfly-decks[wildfly-decks] repository.

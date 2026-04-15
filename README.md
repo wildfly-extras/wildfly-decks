@@ -16,3 +16,9 @@ WildFly presentation materials.
 * Use the onstage window to control the presentation.
 
 Note that this work is derived from the <https://github.com/paulrouget/dzslides> project which states that any change is allowed as long as the original (dzslides or license) name is not used.
+
+## reveal.js decks:
+
+A modern alternative to DZSlides using [reveal.js](https://revealjs.com/). Presentation files and templates
+can be found in the [`reveal.js`](reveal.js) directory. See the [`reveal.js/README.adoc`](reveal.js/README.adoc)
+for detailed documentation.
